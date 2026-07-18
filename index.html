@@ -121,6 +121,35 @@
     .hero-shape:nth-child(3){width:60px;height:60px;bottom:20%;left:30%;animation-duration:28s;border-radius:8px}
     .hero-shape:nth-child(4){width:40px;height:40px;top:30%;right:30%;animation-duration:20s}
     @keyframes shapeDrift{0%{transform:translate(0,0)rotate(0deg)}33%{transform:translate(30px,-20px)rotate(120deg)}66%{transform:translate(-20px,30px)rotate(240deg)}100%{transform:translate(0,0)rotate(360deg)}}
+
+    .floating-parts{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1}
+    .floating-part{position:absolute;font-size:24px;color:var(--orange);opacity:0.08;animation:floatPart 25s linear infinite}
+    .floating-part:nth-child(1){top:10%;left:5%;animation-duration:22s;font-size:28px}
+    .floating-part:nth-child(2){top:20%;right:8%;animation-duration:28s;font-size:20px;animation-delay:-5s}
+    .floating-part:nth-child(3){bottom:25%;left:12%;animation-duration:30s;font-size:32px;animation-delay:-10s}
+    .floating-part:nth-child(4){top:60%;right:20%;animation-duration:26s;font-size:18px;animation-delay:-15s}
+    .floating-part:nth-child(5){top:40%;left:25%;animation-duration:32s;font-size:22px;animation-delay:-8s}
+    .floating-part:nth-child(6){bottom:15%;right:10%;animation-duration:24s;font-size:26px;animation-delay:-12s}
+    .floating-part:nth-child(7){top:75%;left:40%;animation-duration:28s;font-size:16px;animation-delay:-3s}
+    .floating-part:nth-child(8){top:5%;left:50%;animation-duration:35s;font-size:30px;animation-delay:-18s}
+    @keyframes floatPart{0%{transform:translateY(0) rotate(0deg);opacity:0.08}25%{transform:translateY(-30px) rotate(90deg);opacity:0.12}50%{transform:translateY(10px) rotate(180deg);opacity:0.06}75%{transform:translateY(-20px) rotate(270deg);opacity:0.1}100%{transform:translateY(0) rotate(360deg);opacity:0.08}}
+
+    .section-floating{position:relative;overflow:hidden}
+    .section-floating .floating-parts-section{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+    .floating-parts-section .fp{position:absolute;font-size:20px;color:var(--orange);opacity:0.05;animation:floatPartSection 30s linear infinite}
+    .floating-parts-section .fp:nth-child(1){top:10%;left:5%;animation-duration:28s}
+    .floating-parts-section .fp:nth-child(2){top:30%;right:8%;animation-duration:32s;animation-delay:-8s}
+    .floating-parts-section .fp:nth-child(3){bottom:20%;left:15%;animation-duration:26s;animation-delay:-14s}
+    .floating-parts-section .fp:nth-child(4){top:60%;right:12%;animation-duration:30s;animation-delay:-5s}
+    @keyframes floatPartSection{0%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-20px) rotate(180deg)}100%{transform:translateY(0) rotate(360deg)}}
+
+    .loader-icon-spin{animation:loaderSpin 2s linear infinite}
+    @keyframes loaderSpin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+    .loader-parts{display:flex;gap:8px;align-items:center;opacity:0;animation:lfi 0.5s ease 0.5s forwards}
+    .loader-parts i{font-size:18px;color:var(--orange);animation:pulsePart 1.5s ease-in-out infinite}
+    .loader-parts i:nth-child(2){animation-delay:0.2s}
+    .loader-parts i:nth-child(3){animation-delay:0.4s}
+    @keyframes pulsePart{0%,100%{transform:scale(1);opacity:0.5}50%{transform:scale(1.2);opacity:1}}
     .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;padding:80px 0;position:relative;z-index:2}
     .hero-tagline{display:inline-flex;align-items:center;gap:8px;background:var(--orange-subtle);border:1px solid rgba(255,107,53,0.12);padding:6px 18px;border-radius:50px;font-size:12px;color:var(--orange);font-weight:500;margin-bottom:18px;opacity:0;transform:translateY(20px);transition:all 0.8s cubic-bezier(0.4,0,0.2,1)}
     .hero-tagline.revealed{opacity:1;transform:translateY(0)}
@@ -437,6 +466,7 @@
 
   <div class="page-loader" id="pageLoader">
     <div class="loader-logo">CKM & UA</div>
+    <div class="loader-parts"><i class="fas fa-cog loader-icon-spin"></i><i class="fas fa-wrench"></i><i class="fas fa-car"></i></div>
     <div class="loader-bar"><div class="loader-bar-inner"></div></div>
   </div>
 
@@ -501,6 +531,16 @@
       <div class="hero-shape"></div>
       <div class="hero-shape"></div>
       <div class="hero-shape"></div>
+    </div>
+    <div class="floating-parts">
+      <i class="fas fa-cog floating-part"></i>
+      <i class="fas fa-wrench floating-part"></i>
+      <i class="fas fa-oil-can floating-part"></i>
+      <i class="fas fa-filter floating-part"></i>
+      <i class="fas fa-bolt floating-part"></i>
+      <i class="fas fa-key floating-part"></i>
+      <i class="fas fa-car-battery floating-part"></i>
+      <i class="fas fa-engine floating-part"></i>
     </div>
     <div class="container">
       <div class="hero-grid">
@@ -613,7 +653,13 @@
   </section>
 
   <!-- ===== FEATURED ===== -->
-  <section class="section" id="featured">
+  <section class="section section-floating" id="featured">
+    <div class="floating-parts-section">
+      <i class="fas fa-cog fp"></i>
+      <i class="fas fa-wrench fp"></i>
+      <i class="fas fa-filter fp"></i>
+      <i class="fas fa-oil-can fp"></i>
+    </div>
     <div class="container">
       <div class="reveal">
         <div class="section-label"><i class="fas fa-star"></i> Featured Parts</div>
@@ -631,7 +677,13 @@
   </section>
 
   <!-- ===== STATS ===== -->
-  <section class="section section-alt" id="stats">
+  <section class="section section-alt section-floating" id="stats">
+    <div class="floating-parts-section">
+      <i class="fas fa-bolt fp"></i>
+      <i class="fas fa-key fp"></i>
+      <i class="fas fa-car-battery fp"></i>
+      <i class="fas fa-engine fp"></i>
+    </div>
     <div class="container">
       <div class="reveal">
         <div class="section-label"><i class="fas fa-chart-line"></i> Our Numbers</div>
@@ -699,7 +751,13 @@
   </section>
 
   <!-- ===== TESTIMONIALS ===== -->
-  <section class="section section-alt" id="testimonials">
+  <section class="section section-alt section-floating" id="testimonials">
+    <div class="floating-parts-section">
+      <i class="fas fa-cog fp"></i>
+      <i class="fas fa-wrench fp"></i>
+      <i class="fas fa-key fp"></i>
+      <i class="fas fa-bolt fp"></i>
+    </div>
     <div class="container">
       <div class="reveal">
         <div class="section-label"><i class="fas fa-quote-left"></i> Testimonials</div>
@@ -711,7 +769,13 @@
   </section>
 
   <!-- ===== CONTACT ===== -->
-  <section class="section" id="contact">
+  <section class="section section-floating" id="contact">
+    <div class="floating-parts-section">
+      <i class="fas fa-phone-alt fp"></i>
+      <i class="fas fa-envelope fp"></i>
+      <i class="fab fa-whatsapp fp"></i>
+      <i class="fas fa-map-marker-alt fp"></i>
+    </div>
     <div class="container">
       <div class="reveal">
         <div class="section-label"><i class="fas fa-envelope"></i> Get In Touch</div>
