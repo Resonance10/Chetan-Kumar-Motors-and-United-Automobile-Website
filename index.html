@@ -317,10 +317,9 @@
     .brand-strip.paused{animation-play-state:paused}
     @keyframes scrollBrands{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
     .brand-item{display:flex;flex-direction:column;align-items:center;gap:8px;flex-shrink:0;width:95px;transition:var(--transition);cursor:default}
-    .brand-item img{width:72px;height:32px;object-fit:contain;transition:var(--transition);filter:grayscale(1) invert(1) brightness(1.8) opacity(0.5)}
-    :root.light .brand-item img{filter:grayscale(1) opacity(0.5)}
+    .brand-item svg{width:72px;height:32px;transition:var(--transition);color:var(--text-secondary);opacity:0.5}
     .brand-item span{font-size:11px;color:var(--text-secondary);font-weight:500;white-space:nowrap;transition:var(--transition)}
-    .brand-item:hover img{filter:none;opacity:1}
+    .brand-item:hover svg{color:var(--orange);opacity:1}
     .brand-item:hover span{color:var(--text-heading)}
 
     .testi-track{display:flex;gap:20px;overflow-x:auto;padding:8px 4px 20px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scroll-behavior:smooth}
@@ -471,7 +470,7 @@
       .form-group input,.form-group textarea,.form-group select{padding:12px 14px 12px 40px;font-size:12px}
       .whatsapp-btn{padding:10px 20px;font-size:11px}
       .brand-item{width:80px}
-      .brand-item img{width:60px;height:26px}
+      .brand-item svg{width:60px;height:26px}
       .brand-item span{font-size:10px}
       .stat-card{padding:24px 12px 20px}
       .stat-card i{font-size:24px}
@@ -518,7 +517,7 @@
       .cat-strip{gap:8px}
       .cat-strip-wrap::before,.cat-strip-wrap::after{width:40px}
       .brand-item{width:70px}
-      .brand-item img{width:50px;height:22px}
+      .brand-item svg{width:50px;height:22px}
       .back-top{width:40px;height:40px;bottom:16px;left:16px}
       .toast{max-width:280px;font-size:12px;padding:12px 16px}
     }
@@ -834,30 +833,30 @@
     </div>
     <div class="brand-strip-inner">
       <div class="brand-strip" id="brandStrip">
-        <div class="brand-item"><img src="https://logo.clearbit.com/mahindra.com" alt="Mahindra Logo" loading="lazy"><span>Mahindra</span></div>
-        <div class="brand-item"><img src="https://logo.clearbit.com/tata.com" alt="Tata Logo" loading="lazy"><span>Tata</span></div>
-        <div class="brand-item"><img src="https://logo.clearbit.com/bosch.com" alt="Bosch Logo" loading="lazy"><span>Bosch</span></div>
-        <div class="brand-item"><img src="https://logo.clearbit.com/exideindustries.com" alt="Exide Logo" loading="lazy"><span>Exide</span></div>
-        <div class="brand-item"><img src="https://logo.clearbit.com/jktyre.com" alt="JK Tyre Logo" loading="lazy"><span>JK Tyre</span></div>
-        <div class="brand-item"><img src="https://logo.clearbit.com/ceat.com" alt="CEAT Logo" loading="lazy"><span>CEAT</span></div>
-        <div class="brand-item"><img src="https://logo.clearbit.com/lucas-tvs.com" alt="Lucas TVS Logo" loading="lazy"><span>Lucas TVS</span></div>
-        <div class="brand-item"><img src="https://logo.clearbit.com/amaron.in" alt="Amaron Logo" loading="lazy"><span>Amaron</span></div>
-        <div class="brand-item"><img src="https://logo.clearbit.com/castrol.com" alt="Castrol Logo" loading="lazy"><span>Castrol</span></div>
-        <div class="brand-item"><img src="https://logo.clearbit.com/mann-filter.com" alt="Mann Filter Logo" loading="lazy"><span>Mann Filter</span></div>
-        <div class="brand-item"><img src="https://logo.clearbit.com/tvsmotor.com" alt="TVS Logo" loading="lazy"><span>TVS Girlock</span></div>
-        <div class="brand-item"><img src="https://logo.clearbit.com/3m.com" alt="3M Logo" loading="lazy"><span>3M</span></div>
-        <div class="brand-item"><img src="https://logo.clearbit.com/mahindra.com" alt="Mahindra Logo" loading="lazy"><span>Mahindra</span></div>
-        <div class="brand-item"><img src="https://logo.clearbit.com/tata.com" alt="Tata Logo" loading="lazy"><span>Tata</span></div>
-        <div class="brand-item"><img src="https://logo.clearbit.com/bosch.com" alt="Bosch Logo" loading="lazy"><span>Bosch</span></div>
-        <div class="brand-item"><img src="https://logo.clearbit.com/exideindustries.com" alt="Exide Logo" loading="lazy"><span>Exide</span></div>
-        <div class="brand-item"><img src="https://logo.clearbit.com/jktyre.com" alt="JK Tyre Logo" loading="lazy"><span>JK Tyre</span></div>
-        <div class="brand-item"><img src="https://logo.clearbit.com/ceat.com" alt="CEAT Logo" loading="lazy"><span>CEAT</span></div>
-        <div class="brand-item"><img src="https://logo.clearbit.com/lucas-tvs.com" alt="Lucas TVS Logo" loading="lazy"><span>Lucas TVS</span></div>
-        <div class="brand-item"><img src="https://logo.clearbit.com/amaron.in" alt="Amaron Logo" loading="lazy"><span>Amaron</span></div>
-        <div class="brand-item"><img src="https://logo.clearbit.com/castrol.com" alt="Castrol Logo" loading="lazy"><span>Castrol</span></div>
-        <div class="brand-item"><img src="https://logo.clearbit.com/mann-filter.com" alt="Mann Filter Logo" loading="lazy"><span>Mann Filter</span></div>
-        <div class="brand-item"><img src="https://logo.clearbit.com/tvsmotor.com" alt="TVS Logo" loading="lazy"><span>TVS Girlock</span></div>
-        <div class="brand-item"><img src="https://logo.clearbit.com/3m.com" alt="3M Logo" loading="lazy"><span>3M</span></div>
+        <div class="brand-item"><svg viewBox="0 0 100 40"><text x="50%" y="60%" text-anchor="middle" font-family="'Clash Display', Arial, sans-serif" font-weight="800" font-size="16" fill="currentColor">Mahindra</text></svg><span>Mahindra</span></div>
+        <div class="brand-item"><svg viewBox="0 0 100 40" fill="currentColor"><circle cx="50" cy="20" r="14" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M50 11 C43 17, 43 28, 43 28 M50 11 C57 17, 57 28, 57 28" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg><span>Tata</span></div>
+        <div class="brand-item"><svg viewBox="0 0 100 40" fill="currentColor"><circle cx="20" cy="20" r="10" fill="none" stroke="currentColor" stroke-width="2.5"/><rect x="19" y="14" width="2" height="12"/><text x="40" y="27" font-family="Arial, sans-serif" font-weight="900" font-size="18" letter-spacing="1">BOSCH</text></svg><span>Bosch</span></div>
+        <div class="brand-item"><svg viewBox="0 0 100 40" fill="currentColor"><text x="50%" y="65%" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="24" letter-spacing="1.5">EXIDE</text></svg><span>Exide</span></div>
+        <div class="brand-item"><svg viewBox="0 0 100 40" fill="currentColor"><text x="50%" y="65%" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-style="italic" font-size="19" letter-spacing="1">JK TYRE</text></svg><span>JK Tyre</span></div>
+        <div class="brand-item"><svg viewBox="0 0 100 40" fill="currentColor"><text x="50%" y="65%" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-style="italic" font-size="22" letter-spacing="2">CEAT</text></svg><span>CEAT</span></div>
+        <div class="brand-item"><svg viewBox="0 0 100 40" fill="currentColor"><text x="50%" y="45%" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="13">LUCAS</text><text x="50%" y="80%" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="13" letter-spacing="1">TVS</text></svg><span>Lucas TVS</span></div>
+        <div class="brand-item"><svg viewBox="0 0 100 40" fill="currentColor"><text x="50%" y="65%" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-style="italic" font-size="20" letter-spacing="1">AMARON</text></svg><span>Amaron</span></div>
+        <div class="brand-item"><svg viewBox="0 0 100 40" fill="currentColor"><text x="50%" y="65%" text-anchor="middle" font-family="Georgia, serif" font-weight="bold" font-style="italic" font-size="22">Castrol</text></svg><span>Castrol</span></div>
+        <div class="brand-item"><svg viewBox="0 0 100 40" fill="currentColor"><text x="50%" y="45%" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="13">MANN</text><text x="50%" y="78%" text-anchor="middle" font-family="Arial, sans-serif" font-weight="500" font-size="11" letter-spacing="0.5">FILTER</text></svg><span>Mann Filter</span></div>
+        <div class="brand-item"><svg viewBox="0 0 100 40" fill="currentColor"><text x="50%" y="45%" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-style="italic" font-size="15">TVS</text><text x="50%" y="78%" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="11" letter-spacing="0.5">GIRLOCK</text></svg><span>TVS Girlock</span></div>
+        <div class="brand-item"><svg viewBox="0 0 100 40" fill="currentColor"><text x="50%" y="65%" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="28">3M</text></svg><span>3M</span></div>
+        <div class="brand-item"><svg viewBox="0 0 100 40"><text x="50%" y="60%" text-anchor="middle" font-family="'Clash Display', Arial, sans-serif" font-weight="800" font-size="16" fill="currentColor">Mahindra</text></svg><span>Mahindra</span></div>
+        <div class="brand-item"><svg viewBox="0 0 100 40" fill="currentColor"><circle cx="50" cy="20" r="14" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M50 11 C43 17, 43 28, 43 28 M50 11 C57 17, 57 28, 57 28" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg><span>Tata</span></div>
+        <div class="brand-item"><svg viewBox="0 0 100 40" fill="currentColor"><circle cx="20" cy="20" r="10" fill="none" stroke="currentColor" stroke-width="2.5"/><rect x="19" y="14" width="2" height="12"/><text x="40" y="27" font-family="Arial, sans-serif" font-weight="900" font-size="18" letter-spacing="1">BOSCH</text></svg><span>Bosch</span></div>
+        <div class="brand-item"><svg viewBox="0 0 100 40" fill="currentColor"><text x="50%" y="65%" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="24" letter-spacing="1.5">EXIDE</text></svg><span>Exide</span></div>
+        <div class="brand-item"><svg viewBox="0 0 100 40" fill="currentColor"><text x="50%" y="65%" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-style="italic" font-size="19" letter-spacing="1">JK TYRE</text></svg><span>JK Tyre</span></div>
+        <div class="brand-item"><svg viewBox="0 0 100 40" fill="currentColor"><text x="50%" y="65%" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-style="italic" font-size="22" letter-spacing="2">CEAT</text></svg><span>CEAT</span></div>
+        <div class="brand-item"><svg viewBox="0 0 100 40" fill="currentColor"><text x="50%" y="45%" text-anchor="middle" font-family="Arial, sans-serif" font-weight="800" font-size="13">LUCAS</text><text x="50%" y="80%" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="13" letter-spacing="1">TVS</text></svg><span>Lucas TVS</span></div>
+        <div class="brand-item"><svg viewBox="0 0 100 40" fill="currentColor"><text x="50%" y="65%" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-style="italic" font-size="20" letter-spacing="1">AMARON</text></svg><span>Amaron</span></div>
+        <div class="brand-item"><svg viewBox="0 0 100 40" fill="currentColor"><text x="50%" y="65%" text-anchor="middle" font-family="Georgia, serif" font-weight="bold" font-style="italic" font-size="22">Castrol</text></svg><span>Castrol</span></div>
+        <div class="brand-item"><svg viewBox="0 0 100 40" fill="currentColor"><text x="50%" y="45%" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="13">MANN</text><text x="50%" y="78%" text-anchor="middle" font-family="Arial, sans-serif" font-weight="500" font-size="11" letter-spacing="0.5">FILTER</text></svg><span>Mann Filter</span></div>
+        <div class="brand-item"><svg viewBox="0 0 100 40" fill="currentColor"><text x="50%" y="45%" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-style="italic" font-size="15">TVS</text><text x="50%" y="78%" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="11" letter-spacing="0.5">GIRLOCK</text></svg><span>TVS Girlock</span></div>
+        <div class="brand-item"><svg viewBox="0 0 100 40" fill="currentColor"><text x="50%" y="65%" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="28">3M</text></svg><span>3M</span></div>
       </div>
     </div>
   </section>
