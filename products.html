@@ -954,11 +954,11 @@
       return picked.concat(rest.slice(0,10-picked.length));
     })();
     var currentCategory='all',searchQuery='',sortMode='default',listView=false,currentDivision='all';
-    var getCatLabel=function(c){
+    function getCatLabel(c){
       if(typeof PT!=='undefined'&&PT[curLang]){var t=PT[curLang];var m={car:t.catCar,tractor:t.catTractor,farm:t.catFarm,tyre:t.catTyre,jcb:t.catJCB,twowheeler:t.cat2W,general:t.catGeneral};if(m[c])return m[c]}
       return{car:'Car Parts',tractor:'Tractor Parts',farm:'Farm Implements',tyre:'Tyres',jcb:'JCB Parts',twowheeler:'2-Wheeler Parts',general:'General Hardware'}[c]||c
-    };
-    var partNum=function(id){return'CKP-'+String(id).padStart(4,'0')};
+    }
+    function partNum(id){return'CKP-'+String(id).padStart(4,'0')}
     var PAGE_SIZE=100;
     var currentPage=1;
     function getAllProducts(){
