@@ -434,6 +434,7 @@
       .hero-tagline{font-size:11px;padding:5px 14px}
       .hero-grid{padding:40px 0}
       .hero-cta a{padding:12px 24px;font-size:13px}
+      .animated-button{padding:14px 28px;font-size:13px}
       .hero-vehicles span{font-size:10px;padding:3px 10px}
       .section-title{font-size:clamp(1.4rem,5vw,2rem)}
       .section-desc{font-size:13px}
@@ -470,8 +471,13 @@
       .hero{min-height:75vh}
       .hero-content h1{font-size:1.5rem}
       .hero-content .subtitle{font-size:0.85rem}
-      .hero-cta{flex-direction:column}
+      .hero-cta{flex-direction:column;gap:10px}
       .hero-cta a{width:100%;justify-content:center}
+      .animated-button{padding:14px 24px;font-size:13px;border-width:3px;box-shadow:0 0 0 1px var(--orange)}
+      .animated-button .text{transform:translateX(0)}
+      .animated-button:hover .text{transform:translateX(8px)}
+      .animated-button .arr-1,.animated-button .arr-2{width:18px;height:18px}
+      .stroke-btn{width:100%;text-align:center;display:block}
       .hero-vehicles{justify-content:center}
       .stats-grid{grid-template-columns:1fr 1fr}
       .stat-card .stat-num{font-size:24px}
@@ -486,9 +492,12 @@
       .footer-grid{gap:20px}
       .ci-item{flex-direction:column;gap:10px}
       .ci-item .ci-icon{align-self:flex-start}
+      .whatsapp-btn{width:100%;justify-content:center;text-align:center}
       .map-embed-wrap iframe{height:160px}
       .cat-strip{gap:8px}
       .cat-strip-wrap::before,.cat-strip-wrap::after{width:40px}
+      .brand-item{width:70px}
+      .brand-item i{font-size:24px}
       .back-top{width:40px;height:40px;bottom:16px;left:16px}
       .toast{max-width:280px;font-size:12px;padding:12px 16px}
     }
