@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
   <meta charset="UTF-8">
@@ -773,13 +773,23 @@
       }
       document.getElementById('productGrid').innerHTML=html;
     }
+    var catImages = {
+      car: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=600&q=80',
+      tractor: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80',
+      jcb: 'https://images.unsplash.com/photo-1579758629938-03607ccdbaba?auto=format&fit=crop&w=600&q=80',
+      twowheeler: 'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=600&q=80',
+      farm: 'https://images.unsplash.com/photo-1622383563227-04401ab4e5ea?auto=format&fit=crop&w=600&q=80',
+      tyre: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=600&q=80',
+      general: 'https://images.unsplash.com/photo-1610962137022-7729ad9c9225?auto=format&fit=crop&w=600&q=80'
+    };
     function renderProducts(data){
       var grid=document.getElementById('productGrid');
       grid.className='product-grid'+(listView?' list-view':'');
       if(!data.length){grid.innerHTML='<div class="no-results"><i class="fas fa-search"></i>No parts found. Try a different category or search term.</div>';return}
       grid.innerHTML=data.map(function(p){
         var catL=getCatLabel(p.cat),icon=getProductIcon(p.cat);
-        var imgHtml='<i class="fas '+icon+' pc-img-fallback"></i>';
+        var catImg = catImages[p.cat] || catImages.general;
+        var imgHtml='<img src="'+catImg+'" alt="'+p.name+'" loading="lazy" onerror="this.style.display=\'none\'"><i class="fas '+icon+' pc-img-fallback"></i>';
         var vehicleHtml=p.vehicle?'<p class="pc-cat"><i class="fas fa-car"></i> '+p.vehicle+'</p>':'';
         return '<div class="product-card"><div class="pc-img"><div class="pc-img-glow"></div>'+imgHtml+'<span class="pc-tag">'+catL+'</span><span class="pc-stock in-stock"><span class="dot"></span> In Stock</span></div><div class="pc-body"><h4>'+p.name+'</h4>'+vehicleHtml+'<div class="pc-meta"><span class="pc-partno">#'+partNum(p.id)+'</span></div><span class="pc-price"><i class="fas fa-rupee-sign"></i> Enquiry Only</span><div style="margin-top:10px;"><button class="pc-enq" onclick="openEnquiry(\''+p.name.replace(/'/g,"\\'")+'\',\''+p.cat+'\')" aria-label="Enquire about '+p.name.replace(/'/g,"\\'")+'"><i class="fas fa-envelope"></i> Enquire Now</button></div></div></div>';
       }).join('');
