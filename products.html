@@ -727,44 +727,7 @@
       });
     })();
 
-    // Awwwards Momentum Smooth Scroll
-    (function() {
-      if (window.innerWidth <= 768) return;
-      var targetY = window.scrollY;
-      var currentY = window.scrollY;
-      var ease = 0.085;
-      var isScrolling = false;
 
-      window.addEventListener('wheel', function(e) {
-        e.preventDefault();
-        targetY += e.deltaY * 0.85;
-        var maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-        targetY = Math.max(0, Math.min(targetY, maxScroll));
-        if (!isScrolling) {
-          isScrolling = true;
-          requestAnimationFrame(smoothScrollLoop);
-        }
-      }, { passive: false });
-
-      function smoothScrollLoop() {
-        var diff = targetY - currentY;
-        currentY += diff * ease;
-        window.scrollTo(0, currentY);
-        if (Math.abs(diff) > 0.3) {
-          requestAnimationFrame(smoothScrollLoop);
-        } else {
-          currentY = targetY;
-          isScrolling = false;
-        }
-      }
-
-      window.addEventListener('scroll', function() {
-        if (!isScrolling) {
-          currentY = window.scrollY;
-          targetY = window.scrollY;
-        }
-      });
-    })();
     applyPT();
 
     // Dynamic Loader Progress Controller

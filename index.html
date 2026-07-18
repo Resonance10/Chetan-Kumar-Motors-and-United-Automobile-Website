@@ -1147,44 +1147,7 @@
       });
     })();
 
-    // Awwwards Momentum Smooth Scroll
-    (function() {
-      if (window.innerWidth <= 768) return;
-      let targetY = window.scrollY;
-      let currentY = window.scrollY;
-      const ease = 0.085;
-      let isScrolling = false;
 
-      window.addEventListener('wheel', e => {
-        e.preventDefault();
-        targetY += e.deltaY * 0.85;
-        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-        targetY = Math.max(0, Math.min(targetY, maxScroll));
-        if (!isScrolling) {
-          isScrolling = true;
-          requestAnimationFrame(smoothScrollLoop);
-        }
-      }, { passive: false });
-
-      function smoothScrollLoop() {
-        const diff = targetY - currentY;
-        currentY += diff * ease;
-        window.scrollTo(0, currentY);
-        if (Math.abs(diff) > 0.3) {
-          requestAnimationFrame(smoothScrollLoop);
-        } else {
-          currentY = targetY;
-          isScrolling = false;
-        }
-      }
-
-      window.addEventListener('scroll', () => {
-        if (!isScrolling) {
-          currentY = window.scrollY;
-          targetY = window.scrollY;
-        }
-      });
-    })();
 
     // Awwwards Cinematic Text Reveal
     (function() {
