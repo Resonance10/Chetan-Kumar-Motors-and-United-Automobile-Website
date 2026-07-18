@@ -367,24 +367,69 @@
       .nav-links>a:not(.nav-contact-btn),.div-dropdown{display:none}
       .hamburger{display:flex}
       .section{padding:70px 0}
-      .hero-content h1{font-size:1.8rem}
+      .hero{min-height:80vh}
+      .hero-content h1{font-size:1.8rem;letter-spacing:-0.5px}
+      .hero-content .subtitle{font-size:0.9rem}
+      .hero-tagline{font-size:11px;padding:5px 14px}
       .hero-grid{padding:40px 0}
+      .hero-cta a{padding:12px 24px;font-size:13px}
+      .hero-vehicles span{font-size:10px;padding:3px 10px}
+      .section-title{font-size:clamp(1.4rem,5vw,2rem)}
+      .section-desc{font-size:13px}
+      .section-label{font-size:10px}
+      .marquee-item{font-size:clamp(2rem,6vw,4rem);-webkit-text-stroke:1px var(--text-muted);padding:0 20px}
       .footer-grid{grid-template-columns:1fr;text-align:center}
       .footer-brand p{max-width:100%}
       .footer-social{justify-content:center}
       .container{padding:0 20px}
       .navbar{padding:0 20px}
+      .div-card{padding:24px}
+      .div-card h3{font-size:18px}
+      .cat-chip{min-width:85px;padding:12px 16px}
+      .cat-chip i{font-size:22px}
+      .cat-chip span{font-size:10px}
+      .testi-card{width:300px;padding:22px}
+      .testi-card blockquote{font-size:12px}
+      .contact-info h3{font-size:18px}
+      .ci-item h4{font-size:12px}
+      .ci-item p{font-size:12px}
+      .contact-form{padding:24px}
+      .contact-form h3{font-size:16px}
+      .form-group input,.form-group textarea,.form-group select{padding:12px 14px 12px 40px;font-size:12px}
+      .whatsapp-btn{padding:10px 20px;font-size:11px}
+      .brand-item{width:80px}
+      .brand-item i{font-size:28px}
+      .brand-item span{font-size:10px}
+      .stat-card{padding:24px 12px 20px}
+      .stat-card i{font-size:24px}
+      .stat-card .stat-num{font-size:28px}
+      .stat-card .stat-label{font-size:11px}
     }
     @media(max-width:480px){
+      .hero{min-height:75vh}
+      .hero-content h1{font-size:1.5rem}
+      .hero-content .subtitle{font-size:0.85rem}
+      .hero-cta{flex-direction:column}
+      .hero-cta a{width:100%;justify-content:center}
+      .hero-vehicles{justify-content:center}
       .stats-grid{grid-template-columns:1fr 1fr}
-      .stat-card .stat-num{font-size:26px}
-      .testi-card{width:280px}
+      .stat-card .stat-num{font-size:24px}
+      .testi-card{width:270px}
       .carousel-card{width:230px}
-      .div-toggle-btn{padding:9px 16px;font-size:12px}
-      .hero-grid{padding:30px 0}
+      .div-toggle-btn{padding:9px 14px;font-size:11px}
+      .div-toggle-wrap{padding:3px}
+      .hero-grid{padding:20px 0}
       .section{padding:50px 0}
-      .contact-grid{gap:32px}
-      .footer-grid{gap:24px}
+      .section-title{font-size:1.3rem}
+      .contact-grid{gap:24px}
+      .footer-grid{gap:20px}
+      .ci-item{flex-direction:column;gap:10px}
+      .ci-item .ci-icon{align-self:flex-start}
+      .map-embed-wrap iframe{height:160px}
+      .cat-strip{gap:8px}
+      .cat-strip-wrap::before,.cat-strip-wrap::after{width:40px}
+      .back-top{width:40px;height:40px;bottom:16px;left:16px}
+      .toast{max-width:280px;font-size:12px;padding:12px 16px}
     }
   </style>
 </head>
@@ -472,7 +517,7 @@
             <span><i class="fas fa-circle"></i> Tyres</span>
           </div>
           <div class="hero-cta" id="heroCta">
-            <a href="#featured" class="btn-primary"><i class="fas fa-cogs"></i> Browse Parts</a>
+            <a href="products.html" class="btn-primary"><i class="fas fa-cogs"></i> Browse Parts</a>
             <a href="#contact" class="btn-secondary"><i class="fas fa-phone"></i> Contact Us</a>
           </div>
         </div>
