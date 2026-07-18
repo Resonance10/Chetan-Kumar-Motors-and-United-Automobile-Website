@@ -746,55 +746,7 @@
     </div>
   </section>
 
-  <!-- ===== DIVISIONS ===== -->
-  <section class="section" id="divisions">
-    <div class="container">
-      <div class="reveal">
-        <div class="section-label"><i class="fas fa-building"></i> Our Divisions</div>
-        <h2 class="section-title">Two Expert Divisions, One Trusted Name</h2>
-        <p class="section-desc">Specialized teams for 4-wheeler/tractor/farm parts and 2-wheeler parts — serving Kuhi &amp; greater Nagpur since 2000.</p>
-      </div>
-      <div class="div-toggle-wrap ck" id="divToggle">
-        <div class="div-toggle-slider"></div>
-        <button class="div-toggle-btn active" onclick="setDivToggle('ck')">4-Wheeler &amp; Farm</button>
-        <button class="div-toggle-btn" onclick="setDivToggle('ua')">2-Wheeler</button>
-      </div>
-      <div class="div-cards-grid reveal-stagger" id="divCards">
-        <div class="div-card ck-card">
-          <div class="dc-icon"><i class="fas fa-truck"></i></div>
-          <h3>Chetan Kumar Motors</h3>
-          <p>Complete spare parts for cars, tractors, JCBs, and farm implements. Authorized dealer network with genuine OEM parts.</p>
-          <div class="dc-tags">
-            <span><i class="fas fa-car"></i> Cars</span>
-            <span><i class="fas fa-tractor"></i> Tractors</span>
-            <span><i class="fas fa-hard-hat"></i> JCB</span>
-            <span><i class="fas fa-seedling"></i> Farm</span>
-          </div>
-          <div class="owner-row">
-            <i class="fas fa-user-tie"></i>
-            <span class="owner-name">Bandu Wanjari</span>
-            <a href="tel:+919922324409" class="owner-phone"><i class="fas fa-phone"></i> 9922324409</a>
-          </div>
-        </div>
-        <div class="div-card ua-card">
-          <div class="dc-icon"><i class="fas fa-motorcycle"></i></div>
-          <h3>United Automobile</h3>
-          <p>Specialized 2-wheeler parts for bikes, scooters, and mopeds. All major brands covered with competitive pricing.</p>
-          <div class="dc-tags">
-            <span><i class="fas fa-motorcycle"></i> Bikes</span>
-            <span><i class="fas fa-bicycle"></i> Scooters</span>
-            <span><i class="fas fa-cog"></i> Engine Parts</span>
-            <span><i class="fas fa-circle"></i> Tyres</span>
-          </div>
-          <div class="owner-row">
-            <i class="fas fa-user-tie"></i>
-            <span class="owner-name">Saurabh Wanjari</span>
-            <a href="tel:+917350912187" class="owner-phone"><i class="fas fa-phone"></i> 7350912187</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+
 
   <!-- ===== CATEGORIES ===== -->
   <section class="section section-alt" id="categories">
@@ -1091,7 +1043,7 @@
 
       var mi=document.querySelectorAll('.marquee-item');var mk=['marquee1','marquee2','marquee3','marquee4'];mi.forEach((m,i)=>m.textContent=t[mk[i%4]]);
 
-      var ds=document.getElementById('divisions');if(ds){var dl=ds.querySelector('.section-label');if(dl)dl.innerHTML='<i class="fas fa-building"></i> '+t.divLabel;var dt=ds.querySelector('.section-title');if(dt)dt.textContent=t.divTitle;var dd=ds.querySelector('.section-desc');if(dd)dd.innerHTML=t.divDesc;var tb=ds.querySelectorAll('.div-toggle-btn');if(tb[0])tb[0].textContent=t.divToggleCK;if(tb[1])tb[1].textContent=t.divToggleUA}
+
 
       var cs=document.getElementById('categories');if(cs){var cl2=cs.querySelector('.section-label');if(cl2)cl2.innerHTML='<i class="fas fa-th-large"></i> '+t.catLabel;var ct=cs.querySelector('.section-title');if(ct)ct.textContent=t.catTitle;var cd=cs.querySelector('.section-desc');if(cd)cd.textContent=t.catDesc;var cc=cs.querySelectorAll('.cat-chip span');var ck=['catAll','catCar','catTractor','catFarm','catTyres','catJCB','cat2Wheeler'];cc.forEach((c,i)=>c.textContent=t[ck[i]])}
 
@@ -1308,21 +1260,13 @@
     function toggleDivisionMenu(){document.getElementById('divDropdown').classList.toggle('open')}
     document.addEventListener('click',e=>{if(!e.target.closest('#divDropdown'))document.getElementById('divDropdown').classList.remove('open')});
 
-    function setDivToggle(div){
-      const wrap=document.getElementById('divToggle');
-      const btns=wrap.querySelectorAll('.div-toggle-btn');
-      wrap.className='div-toggle-wrap '+div;
-      btns[0].classList.toggle('active',div==='ck');
-      btns[1].classList.toggle('active',div==='ua');
-    }
     function switchDivision(div){
-      setDivToggle(div);
       document.querySelectorAll('.div-dropdown-menu a').forEach(a=>a.classList.toggle('dd-active',a.dataset.div===div));
       document.getElementById('mobileMenu').classList.remove('open');
       document.getElementById('hamburger').classList.remove('open');
       var ov=document.getElementById('mobileOverlay');if(ov)ov.classList.remove('show');
       document.body.style.overflow='';
-      document.getElementById('divisions').scrollIntoView({behavior:'smooth'});
+      document.getElementById('categories').scrollIntoView({behavior:'smooth'});
     }
 
     let lastScroll=0;
