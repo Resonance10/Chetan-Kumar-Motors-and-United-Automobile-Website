@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>All Parts — Chetan Kumar Motors & United Automobile — Kuhi, Nagpur</title>
+  <meta name="description" content="Browse 12,000+ genuine spare parts for cars, tractors, JCBs, farm equipment and 2-wheelers. Search and filter by category — Chetan Kumar Motors & United Automobile, Kuhi, Nagpur.">
+  <meta property="og:title" content="All Parts — Chetan Kumar Motors & United Automobile">
+  <meta property="og:description" content="Browse 12,000+ genuine spare parts for cars, tractors, JCBs, farm equipment and 2-wheelers in Kuhi, Nagpur.">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&f[]=satoshi@300,400,500,700,900&display=swap" rel="stylesheet">
@@ -86,6 +91,14 @@
     .div-dropdown-menu a:hover{background:var(--bg-overlay);color:var(--text-heading)!important}
     .div-dropdown-menu a i{width:20px;text-align:center}
     .div-dropdown-menu .dd-active{background:rgba(255,107,53,0.06);color:var(--orange)!important}
+    .lang-dropdown{position:relative}
+    .lang-dropdown-btn{background:transparent;border:1px solid var(--border);color:var(--text-nav);padding:7px 16px;border-radius:50px;cursor:none;font-size:12px;font-weight:500;font-family:var(--font-body);display:flex;align-items:center;gap:6px;transition:var(--transition)}
+    .lang-dropdown-btn:hover{border-color:var(--orange);color:var(--orange)}
+    .lang-dropdown-menu{position:absolute;top:calc(100% + 8px);right:0;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:6px;min-width:160px;opacity:0;visibility:hidden;transform:translateY(12px) scale(0.95);transition:var(--transition);box-shadow:var(--shadow-lg);z-index:10}
+    .lang-dropdown.open .lang-dropdown-menu{opacity:1;visibility:visible;transform:translateY(0) scale(1)}
+    .lang-dropdown-menu a{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:6px;color:var(--text)!important;font-size:13px;font-weight:500;transition:var(--transition)}
+    .lang-dropdown-menu a:hover{background:var(--bg-overlay);color:var(--text-heading)!important}
+    .lang-dropdown-menu .lang-active{background:rgba(255,107,53,0.06);color:var(--orange)!important}
     .nav-contact-btn{background:linear-gradient(135deg,var(--orange),var(--orange-dark));color:#fff!important;padding:9px 22px!important;font-weight:600!important;box-shadow:0 2px 16px rgba(255,107,53,0.25)!important}
     .nav-contact-btn:hover{transform:translateY(-1px);box-shadow:var(--shadow-glow)!important}
     .hamburger{display:none;flex-direction:column;gap:6px;cursor:none;background:none;border:none;padding:4px;z-index:1002}
@@ -323,7 +336,7 @@
     </a>
     <div class="nav-links">
       <div class="div-dropdown" id="divDropdown">
-        <button class="div-dropdown-btn" onclick="toggleDivisionMenu()">
+        <button class="div-dropdown-btn" onclick="toggleDivisionMenu()" aria-label="Choose a division" aria-haspopup="true">
           <i class="fas fa-building"></i> Division <i class="fas fa-chevron-down" style="font-size:9px;"></i>
         </button>
         <div class="div-dropdown-menu">
@@ -333,10 +346,20 @@
       </div>
       <a href="index.html"><i class="fas fa-home"></i> Home</a>
       <a href="#products" class="active">Parts</a>
-      <button class="theme-btn" onclick="toggleTheme()" id="themeBtn" title="Toggle theme"><i class="fas fa-sun"></i></button>
+      <button class="theme-btn" onclick="toggleTheme()" id="themeBtn" title="Toggle theme" aria-label="Toggle dark/light theme"><i class="fas fa-sun"></i></button>
+      <div class="lang-dropdown" id="langDropdown">
+        <button class="lang-dropdown-btn" onclick="toggleLangMenu()" aria-label="Choose language" aria-haspopup="true">
+          <i class="fas fa-globe"></i> <span id="currentLangLabel">EN</span> <i class="fas fa-chevron-down" style="font-size:9px;"></i>
+        </button>
+        <div class="lang-dropdown-menu">
+          <a href="#" class="lang-active" data-lang="en" onclick="switchLang('en')"><span>English</span></a>
+          <a href="#" data-lang="hi" onclick="switchLang('hi')"><span>हिन्दी</span></a>
+          <a href="#" data-lang="mr" onclick="switchLang('mr')"><span>मराठी</span></a>
+        </div>
+      </div>
       <a href="#contact" class="nav-contact-btn"><i class="fas fa-phone"></i> Contact</a>
     </div>
-    <button class="hamburger" id="hamburger" onclick="toggleMobile()">
+    <button class="hamburger" id="hamburger" onclick="toggleMobile()" aria-label="Toggle menu">
       <span></span><span></span><span></span>
     </button>
   </nav>
@@ -345,13 +368,14 @@
     <a href="#" onclick="switchDivision('ua')"><i class="fas fa-motorcycle"></i> United Automobile</a>
     <a href="index.html"><i class="fas fa-home"></i> Home</a>
     <a href="#products"><i class="fas fa-cogs"></i> Browse Parts</a>
-    <a href="index.html#contact"><i class="fas fa-phone-alt"></i> Contact</a>
+    <a href="#contact"><i class="fas fa-phone-alt"></i> Contact</a>
     <a href="#" onclick="toggleTheme()" style="color:var(--orange);"><i class="fas fa-circle-half-stroke"></i> Toggle Theme</a>
+    <a href="#" onclick="toggleMobileLangMenu()" style="color:var(--blue);"><i class="fas fa-globe"></i> <span id="mobileLangLabel">Language: English</span></a>
   </div>
   <section class="page-header">
     <div class="container" style="text-align:center;position:relative;z-index:1;">
-      <h1><span class="grad-text">All Parts</span> Inventory</h1>
-      <p>Browse our complete stock of <strong>12,000+</strong> auto spare parts across all categories</p>
+      <h1 id="pageHeaderTitle"><span class="grad-text">All Parts</span> Inventory</h1>
+      <p id="pageHeaderDesc">Browse our complete stock of <strong>12,000+</strong> auto spare parts across all categories</p>
     </div>
   </section>
   <section class="section" style="padding-top:0;">
@@ -367,6 +391,7 @@
           <div class="cat-chip" data-cat="tyre" onclick="filterCategory('tyre')"><i class="fas fa-circle"></i><span>Tyres</span></div>
           <div class="cat-chip" data-cat="jcb" onclick="filterCategory('jcb')"><i class="fas fa-hard-hat"></i><span>JCB Parts</span></div>
           <div class="cat-chip" data-cat="twowheeler" onclick="filterCategory('twowheeler')"><i class="fas fa-motorcycle"></i><span>2-Wheeler Parts</span></div>
+          <div class="cat-chip" data-cat="general" onclick="filterCategory('general')"><i class="fas fa-toolbox"></i><span>General Hardware</span></div>
         </div>
       </div>
     </div>
@@ -376,7 +401,7 @@
       <div class="products-header reveal">
         <h2 id="productHeading">All Parts</h2>
         <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
-          <input type="text" id="globalSearch" class="global-search" placeholder="Search by part name, vehicle, or category..." oninput="handleGlobalSearch(this.value)">
+          <input type="text" id="globalSearch" class="global-search" placeholder="Search by part name, vehicle, or category..." aria-label="Search parts" oninput="handleGlobalSearch(this.value)">
           <div class="filter-group">
             <select id="catFilter" onchange="applyFilters()">
               <option value="all">All Categories</option>
@@ -386,6 +411,7 @@
               <option value="tyre">Tyres</option>
               <option value="jcb">JCB Parts</option>
               <option value="twowheeler">2-Wheeler Parts</option>
+              <option value="general">General Hardware</option>
             </select>
             <select id="sortFilter" onchange="applyFilters()">
               <option value="default">Sort: Default</option>
@@ -394,8 +420,8 @@
             </select>
           </div>
           <div class="view-toggle">
-            <button class="active" onclick="toggleView('grid')" title="Grid view"><i class="fas fa-th"></i></button>
-            <button onclick="toggleView('list')" title="List view"><i class="fas fa-list"></i></button>
+            <button class="active" onclick="toggleView('grid')" title="Grid view" aria-label="Grid view"><i class="fas fa-th"></i></button>
+            <button onclick="toggleView('list')" title="List view" aria-label="List view"><i class="fas fa-list"></i></button>
           </div>
         </div>
       </div>
@@ -433,10 +459,10 @@
           <div class="logo-text">Chetan Kumar Motors & United Automobile</div>
           <p>Your trusted auto parts destination in Kuhi, Nagpur. Serving the automotive community with genuine spare parts since 2000.</p>
           <div class="footer-social">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://wa.me/919922324409" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
           </div>
         </div>
         <div class="footer-col">
@@ -462,16 +488,102 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 <a href="#">Chetan Kumar Motors</a> &amp; <a href="#">United Automobile</a> - Kuhi, Nagpur. All rights reserved.</p>
+        <p id="footerCopyrightP">&copy; <span id="copyrightYear">2026</span> <a href="#">Chetan Kumar Motors</a> &amp; <a href="#">United Automobile</a> — Kuhi, Nagpur. All rights reserved.</p>
       </div>
     </div>
   </footer>
-  <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
     <i class="fas fa-arrow-up"></i>
     <svg><circle cx="22" cy="22" r="20" id="backTopCircle"/></svg>
   </button>
   <script src="products.js"></script>
   <script>
+    const PT={
+      en:{navHome:'Home',navParts:'Parts',navContact:'Contact',mobileParts:'Browse Parts',mobileContact:'Contact',mobileTheme:'Toggle Theme',mobileLang:'Language: English',
+        pageTitle:'All Parts',pageTitleRest:'Inventory',pageDesc:'Browse our complete stock of <strong>12,000+</strong> auto spare parts across all categories',
+        catLabel:'Browse by Category',catTitle:'What Are You Looking For?',
+        catAll:'All Parts',catCar:'Car Parts',catTractor:'Tractor Parts',catFarm:'Farm Implements',catTyre:'Tyres',catJCB:'JCB Parts',cat2W:'2-Wheeler Parts',catGeneral:'General Hardware',
+        searchPh:'Search by part name, vehicle, or category...',sortDefault:'Sort: Default',sortAZ:'Sort: A-Z',sortZA:'Sort: Z-A',
+        ctaLabel:'Need Help?',ctaTitle:"Can't Find What You're Looking For?",ctaDesc:"Call or WhatsApp us - we'll source it for you.",
+        ckDesc:'Car, Tractor, JCB & Farm Parts',uaDesc:'2-Wheeler Parts & Accessories',
+        footerDesc:'Your trusted auto parts destination in Kuhi, Nagpur. Serving the automotive community with genuine spare parts since 2000.',
+        footerQuickLinks:'Quick Links',footerHome:'Home',footerBrowse:'Browse Parts',footerContact:'Contact',
+        footerDivisions:'Divisions',footerHours:'Hours',footerMF:'Mon – Fri: 8:30 AM – 8 PM',footerSat:'Saturday: Closed',footerSun:'Sunday: 8:30 AM – 8 PM',
+        footerRights:'All rights reserved.'},
+      hi:{navHome:'होम',navParts:'पार्ट्स',navContact:'संपर्क',mobileParts:'पार्ट्स देखें',mobileContact:'संपर्क',mobileTheme:'थीम बदलें',mobileLang:'भाषा: हिन्दी',
+        pageTitle:'सभी पार्ट्स',pageTitleRest:'सूची',pageDesc:'सभी श्रेणियों में <strong>12,000+</strong> ऑटो स्पेयर पार्ट्स का हमारा पूरा स्टॉक देखें',
+        catLabel:'श्रेणी के अनुसार ब्राउज़ करें',catTitle:'आप क्या ढूंढ रहे हैं?',
+        catAll:'सभी पार्ट्स',catCar:'कार पार्ट्स',catTractor:'ट्रैक्टर पार्ट्स',catFarm:'कृषि उपकरण',catTyre:'टायर',catJCB:'जेसीबी पार्ट्स',cat2W:'2-व्हीलर पार्ट्स',catGeneral:'सामान्य हार्डवेयर',
+        searchPh:'पार्ट नाम, वाहन या श्रेणी से खोजें...',sortDefault:'क्रम: डिफ़ॉल्ट',sortAZ:'क्रम: A-Z',sortZA:'क्रम: Z-A',
+        ctaLabel:'सहायता चाहिए?',ctaTitle:'जो चाहिए वो नहीं मिल रहा?',ctaDesc:'कॉल या व्हाट्सएप करें — हम ढूंढ कर देंगे।',
+        ckDesc:'कार, ट्रैक्टर, जेसीबी और कृषि पार्ट्स',uaDesc:'2-व्हीलर पार्ट्स और एक्सेसरीज़',
+        footerDesc:'कुही, नागपुर में आपका विश्वसनीय ऑटो पार्ट्स गंतव्य। 2000 से शुद्ध स्पेयर पार्ट्स के साथ ऑटोमोटिव समुदाय की सेवा।',
+        footerQuickLinks:'त्वरित लिंक',footerHome:'होम',footerBrowse:'पार्ट्स देखें',footerContact:'संपर्क',
+        footerDivisions:'विभाग',footerHours:'समय',footerMF:'सोम – शुक्र: सुबह 8:30 – रात 8 बजे',footerSat:'शनिवार: बंद',footerSun:'रविवार: सुबह 8:30 – रात 8 बजे',
+        footerRights:'सर्वाधिकार सुरक्षित.'},
+      mr:{navHome:'होम',navParts:'पार्ट्स',navContact:'संपर्क',mobileParts:'पार्ट्स पहा',mobileContact:'संपर्क',mobileTheme:'थीम बदला',mobileLang:'भाषा: मराठी',
+        pageTitle:'सर्व पार्ट्स',pageTitleRest:'यादी',pageDesc:'सर्व वर्गांमधील <strong>12,000+</strong> ऑटो स्पेयर पार्ट्सचा आमचा संपूर्ण साठा पहा',
+        catLabel:'वर्गानुसार ब्राउज़ करा',catTitle:'तुम्हाला काय हवे आहे?',
+        catAll:'सर्व पार्ट्स',catCar:'कार पार्ट्स',catTractor:'ट्रॅक्टर पार्ट्स',catFarm:'शेती उपकरणे',catTyre:'टायर',catJCB:'जेसीबी पार्ट्स',cat2W:'2-व्हीलर पार्ट्स',catGeneral:'सामान्य हार्डवेअर',
+        searchPh:'पार्ट नाव, वाहन किंवा वर्गानुसार शोधा...',sortDefault:'क्रम: डीफॉल्ट',sortAZ:'क्रम: A-Z',sortZA:'क्रम: Z-A',
+        ctaLabel:'मदत हवी आहे?',ctaTitle:'जे हवे ते मिळत नाही?',ctaDesc:'कॉल किंवा व्हॉट्सअॅप करा — आम्ही शोधून देऊ.',
+        ckDesc:'कार, ट्रॅक्टर, जेसीबी आणि शेती पार्ट्स',uaDesc:'2-व्हीलर पार्ट्स आणि अॅक्सेसरीज',
+        footerDesc:'कुही, नागपूरमधील तुमचा विश्वासार्ह ऑटो पार्ट्स गंतव्य. 2000 पासून शुद्ध स्पेयर पार्ट्ससह ऑटोमोटिव्ह समुदायाची सेवा.',
+        footerQuickLinks:'द्रुत लिंक्स',footerHome:'होम',footerBrowse:'पार्ट्स पहा',footerContact:'संपर्क',
+        footerDivisions:'विभाग',footerHours:'तास',footerMF:'सोम – शुक्र: सकाळी 8:30 – रात्री 8',footerSat:'शनिवार: बंद',footerSun:'रविवार: सकाळी 8:30 – रात्री 8',
+        footerRights:'सर्व हक्क राखीव.'}
+    };
+    let curLang=localStorage.getItem('lang')||'en';
+    function toggleLangMenu(){var d=document.getElementById('langDropdown');if(d)d.classList.toggle('open')}
+    document.addEventListener('click',function(e){if(!e.target.closest('#langDropdown')){var ld=document.getElementById('langDropdown');if(ld)ld.classList.remove('open')}});
+    function toggleMobileLangMenu(){var order=['en','hi','mr'];var next=order[(order.indexOf(curLang)+1)%3];switchLang(next)}
+    function switchLang(lang){curLang=lang;localStorage.setItem('lang',lang);applyPT();if(typeof refreshDisplay==='function')refreshDisplay()}
+    function applyPT(){
+      var t=PT[curLang];if(!t)return;
+      document.documentElement.lang=t===PT.en?'en':curLang;
+      var cl=document.getElementById('currentLangLabel');if(cl)cl.textContent=curLang.toUpperCase();
+      var ml=document.getElementById('mobileLangLabel');if(ml)ml.textContent=t.mobileLang;
+      document.querySelectorAll('.lang-dropdown-menu a').forEach(function(a){a.classList.toggle('lang-active',a.getAttribute('data-lang')===curLang)});
+
+      var navLinks=document.querySelectorAll('.nav-links>a[href="index.html"], .nav-links>a[href="#products"], .nav-links>a.nav-contact-btn');
+      if(navLinks[0])navLinks[0].innerHTML='<i class="fas fa-home"></i> '+t.navHome;
+      if(navLinks[1])navLinks[1].textContent=t.navParts;
+      if(navLinks[2])navLinks[2].innerHTML='<i class="fas fa-phone"></i> '+t.navContact;
+      var mm=document.querySelectorAll('.mobile-menu a');
+      if(mm[2])mm[2].innerHTML='<i class="fas fa-home"></i> '+t.navHome;
+      if(mm[3])mm[3].innerHTML='<i class="fas fa-cogs"></i> '+t.mobileParts;
+      if(mm[4])mm[4].innerHTML='<i class="fas fa-phone-alt"></i> '+t.mobileContact;
+      if(mm[5])mm[5].innerHTML='<i class="fas fa-circle-half-stroke"></i> '+t.mobileTheme;
+
+      var pht=document.getElementById('pageHeaderTitle');if(pht)pht.innerHTML='<span class="grad-text">'+t.pageTitle+'</span> '+t.pageTitleRest;
+      var phd=document.getElementById('pageHeaderDesc');if(phd)phd.innerHTML=t.pageDesc;
+
+      var catSec=document.getElementById('categoryStrip')?document.getElementById('categoryStrip').closest('section'):null;
+      if(catSec){var cl2=catSec.querySelector('.section-label');if(cl2)cl2.innerHTML='<i class="fas fa-th-large"></i> '+t.catLabel;var ct=catSec.querySelector('.section-title');if(ct)ct.textContent=t.catTitle}
+      var chips=document.querySelectorAll('.cat-chip span');var chipKeys=['catAll','catCar','catTractor','catFarm','catTyre','catJCB','cat2W','catGeneral'];
+      chips.forEach(function(c,i){if(chipKeys[i])c.textContent=t[chipKeys[i]]});
+
+      var gs=document.getElementById('globalSearch');if(gs)gs.placeholder=t.searchPh;
+      var cf=document.getElementById('catFilter');
+      if(cf){var opts=cf.querySelectorAll('option');var optKeys=['catAll','catCar','catTractor','catFarm','catTyre','catJCB','cat2W','catGeneral'];opts.forEach(function(o,i){if(optKeys[i])o.textContent=t[optKeys[i]]})}
+      var sf=document.getElementById('sortFilter');
+      if(sf){var sopts=sf.querySelectorAll('option');var sKeys=['sortDefault','sortAZ','sortZA'];sopts.forEach(function(o,i){if(sKeys[i])o.textContent=t[sKeys[i]]})}
+
+      var ctaSec=document.getElementById('contact');
+      if(ctaSec){var cl3=ctaSec.querySelector('.section-label');if(cl3)cl3.innerHTML='<i class="fas fa-phone-alt"></i> '+t.ctaLabel;var ct3=ctaSec.querySelector('.section-title');if(ct3)ct3.textContent=t.ctaTitle;var cd3=ctaSec.querySelector('.section-desc');if(cd3)cd3.textContent=t.ctaDesc;
+        var ckP=ctaSec.querySelector('.ck-card p');if(ckP)ckP.textContent=t.ckDesc;var uaP=ctaSec.querySelector('.ua-card p');if(uaP)uaP.textContent=t.uaDesc}
+
+      var ft=document.querySelector('footer');
+      if(ft){var fp=ft.querySelector('.footer-brand p');if(fp)fp.textContent=t.footerDesc;
+        var fh=ft.querySelectorAll('.footer-col h4');if(fh[0])fh[0].textContent=t.footerQuickLinks;if(fh[1])fh[1].textContent=t.footerDivisions;if(fh[2])fh[2].textContent=t.footerHours;
+        var flinks=ft.querySelectorAll('.footer-col:first-of-type ~ .footer-col a');
+        var fqLinks=ft.querySelectorAll('.footer-col')[0]?ft.querySelectorAll('.footer-col')[0].querySelectorAll('a'):[];
+        if(fqLinks[0])fqLinks[0].textContent=t.footerHome;if(fqLinks[1])fqLinks[1].textContent=t.footerBrowse;if(fqLinks[2])fqLinks[2].textContent=t.footerContact;
+        var fhrs=ft.querySelectorAll('.footer-col:last-child a');if(fhrs[0])fhrs[0].textContent=t.footerMF;if(fhrs[1])fhrs[1].textContent=t.footerSat;if(fhrs[2])fhrs[2].textContent=t.footerSun;
+        var fb=document.getElementById('footerCopyrightP');if(fb){var yr=new Date().getFullYear();fb.innerHTML='&copy; <span id="copyrightYear">'+yr+'</span> <a href="#">Chetan Kumar Motors</a> &amp; <a href="#">United Automobile</a> — Kuhi, Nagpur. '+t.footerRights}}
+      updateHeading();
+    }
+
     (function(){
       var dot=document.getElementById('cursorDot');
       var ring=document.getElementById('cursorRing');
@@ -491,6 +603,7 @@
     })();
     window.addEventListener('load',function(){
       setTimeout(function(){document.getElementById('pageLoader').classList.add('hidden')},2200);
+      applyPT();
     });
     (function(){
       var canvas=document.getElementById('noiseCanvas');
@@ -536,17 +649,18 @@
     function toggleDivisionMenu(){document.getElementById('divDropdown').classList.toggle('open')}
     document.addEventListener('click',function(e){if(!e.target.closest('#divDropdown'))document.getElementById('divDropdown').classList.remove('open')});
     var featured=(function(){
-      var cats=['car','tractor','farm','tyre','jcb','twowheeler'];
+      var cats=['car','tractor','farm','tyre','jcb','twowheeler','general'];
       var picked=[];
       cats.forEach(function(c){var i=products.findIndex(function(p){return p.cat===c&&picked.indexOf(p)===-1});if(i>-1)picked.push(products[i])});
       var rest=products.filter(function(p){return picked.indexOf(p)===-1});
       return picked.concat(rest.slice(0,10-picked.length));
     })();
     var currentCategory='all',searchQuery='',sortMode='default',listView=false;
-    var getCatLabel=function(c){return{car:'Car Parts',tractor:'Tractor Parts',farm:'Farm Implements',tyre:'Tyres',jcb:'JCB Parts',twowheeler:'2-Wheeler Parts'}[c]||c};
+    var getCatLabel=function(c){
+      if(typeof PT!=='undefined'&&PT[curLang]){var t=PT[curLang];var m={car:t.catCar,tractor:t.catTractor,farm:t.catFarm,tyre:t.catTyre,jcb:t.catJCB,twowheeler:t.cat2W,general:t.catGeneral};if(m[c])return m[c]}
+      return{car:'Car Parts',tractor:'Tractor Parts',farm:'Farm Implements',tyre:'Tyres',jcb:'JCB Parts',twowheeler:'2-Wheeler Parts',general:'General Hardware'}[c]||c
+    };
     var partNum=function(id){return'CKP-'+String(id).padStart(4,'0')};
-    var stockLabel=function(s){return s==='in'?'In Stock':'Low Stock'};
-    var stockClass=function(s){return s==='in'?'in-stock':'low-stock'};
     var PAGE_SIZE=100;
     var currentPage=1;
     function getAllProducts(){
@@ -595,9 +709,10 @@
       grid.className='product-grid'+(listView?' list-view':'');
       if(!data.length){grid.innerHTML='<div class="no-results"><i class="fas fa-search"></i>No parts found. Try a different category or search term.</div>';return}
       grid.innerHTML=data.map(function(p){
-        var catL=getCatLabel(p.cat),sClass=stockClass(p.stock);
-        var imgHtml=p.img?'<img src="'+p.img+'" alt="'+p.name+'" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\'"><i class="fas '+(p.icon||'fa-cogs')+' pc-img-fallback" style="display:none"></i>':'<i class="fas '+(p.icon||'fa-cogs')+' pc-img-fallback"></i>';
-        return '<div class="product-card"><div class="pc-img"><div class="pc-img-glow"></div>'+imgHtml+'<span class="pc-tag">'+catL+'</span><span class="pc-stock '+sClass+'"><span class="dot"></span> '+stockLabel(p.stock)+'</span></div><div class="pc-body"><h4>'+p.name+'</h4><p class="pc-cat"><i class="fas fa-car"></i> '+p.vehicle+'</p><div class="pc-meta"><span class="pc-partno">#'+partNum(p.id)+'</span></div><span class="pc-price"><i class="fas fa-rupee-sign"></i> Enquiry Only</span><div style="margin-top:10px;"><button class="pc-enq" onclick="openEnquiry(\''+p.name.replace(/'/g,"\\'")+'\')"><i class="fas fa-envelope"></i> Enquire Now</button></div></div></div>';
+        var catL=getCatLabel(p.cat),icon=getProductIcon(p.cat);
+        var imgHtml='<i class="fas '+icon+' pc-img-fallback"></i>';
+        var vehicleHtml=p.vehicle?'<p class="pc-cat"><i class="fas fa-car"></i> '+p.vehicle+'</p>':'';
+        return '<div class="product-card"><div class="pc-img"><div class="pc-img-glow"></div>'+imgHtml+'<span class="pc-tag">'+catL+'</span><span class="pc-stock in-stock"><span class="dot"></span> In Stock</span></div><div class="pc-body"><h4>'+p.name+'</h4>'+vehicleHtml+'<div class="pc-meta"><span class="pc-partno">#'+partNum(p.id)+'</span></div><span class="pc-price"><i class="fas fa-rupee-sign"></i> Enquiry Only</span><div style="margin-top:10px;"><button class="pc-enq" onclick="openEnquiry(\''+p.name.replace(/'/g,"\\'")+'\',\''+p.cat+'\')" aria-label="Enquire about '+p.name.replace(/'/g,"\\'")+'"><i class="fas fa-envelope"></i> Enquire Now</button></div></div></div>';
       }).join('');
     }
     function applyFilters(){
@@ -613,16 +728,20 @@
     }
     function updateHeading(){
       var h=document.getElementById('productHeading');
-      h.textContent=currentCategory==='all'?'All Parts':getCatLabel(currentCategory);
+      var allLabel=(typeof PT!=='undefined'&&PT[curLang])?PT[curLang].catAll:'All Parts';
+      h.textContent=currentCategory==='all'?allLabel:getCatLabel(currentCategory);
     }
     function toggleView(mode){
       listView=mode==='list';
       document.querySelectorAll('.view-toggle button').forEach(function(b){b.classList.toggle('active',(mode==='grid'&&b.innerHTML.indexOf('fa-th')>-1)||(mode==='list'&&b.innerHTML.indexOf('fa-list')>-1))});
       refreshDisplay();
     }
+    var searchDebounceTimer=null;
     function handleGlobalSearch(val){
-      currentPage=1;searchQuery=val.trim();var d=getPageData();renderProducts(d.items);renderPagination(d);
-      document.getElementById('products').scrollIntoView({behavior:'smooth',block:'start'});
+      clearTimeout(searchDebounceTimer);
+      searchDebounceTimer=setTimeout(function(){
+        currentPage=1;searchQuery=val.trim();var d=getPageData();renderProducts(d.items);renderPagination(d);
+      },250);
     }
     function switchDivision(div){
       currentCategory='all';searchQuery='';
@@ -636,16 +755,13 @@
       document.getElementById('hamburger').classList.remove('open');
       document.getElementById('products').scrollIntoView({behavior:'smooth',block:'start'});
     }
-    function openEnquiry(name){
-      document.getElementById('contact').scrollIntoView({behavior:'smooth'});
-    }
-    function submitEnquiry(e){
-      e.preventDefault();
-      var btn=e.target.querySelector('.form-submit');
-      btn.innerHTML='<i class="fas fa-check-circle"></i> Enquiry Sent!';
-      btn.style.background='linear-gradient(135deg,#25D366,#1da851)';
-      showToast('Enquiry sent! We will get back to you shortly.','success');
-      setTimeout(function(){btn.innerHTML='<i class="fas fa-paper-plane"></i> Send Enquiry';btn.style.background='';e.target.reset()},3000);
+    function openEnquiry(name,cat){
+      var isUA=cat==='twowheeler';
+      var number=isUA?'917350912187':'919922324409';
+      var contact=isUA?'Saurabh Wanjari (United Automobile)':'Bandu Wanjari (Chetan Kumar Motors)';
+      var msg='Hi '+contact+', I would like to enquire about: '+name+'. Is it in stock?';
+      window.open('https://wa.me/'+number+'?text='+encodeURIComponent(msg),'_blank');
+      showToast('Opening WhatsApp to enquire about: '+name,'success');
     }
     function showToast(msg,type){
       var c=document.getElementById('toastContainer');
@@ -678,7 +794,7 @@
       });
     },{passive:true});
     document.addEventListener('click',function(e){
-      var btn=e.target.closest('.pc-enq,.form-submit,.nav-contact-btn');
+      var btn=e.target.closest('.pc-enq,.nav-contact-btn');
       if(!btn)return;
       var r=btn.getBoundingClientRect(),ripple=document.createElement('span');
       ripple.className='ripple';var size=Math.max(r.width,r.height);
@@ -688,6 +804,7 @@
       btn.style.position='relative';btn.style.overflow='hidden';
       btn.appendChild(ripple);setTimeout(function(){ripple.remove()},600);
     });
+    var cyEl=document.getElementById('copyrightYear');if(cyEl)cyEl.textContent=new Date().getFullYear();
     showSkeleton(6);
     (function(){
       var m=window.location.hash.match(/search=([^&]+)/);
