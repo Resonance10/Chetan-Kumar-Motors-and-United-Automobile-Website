@@ -270,7 +270,15 @@
     }
     @media(max-width:768px){
       .nav-links>a:not(.nav-contact-btn),.div-dropdown{display:none}
-      .hamburger{display:flex}
+      .hamburger{display:flex;min-width:44px;min-height:44px;padding:10px;justify-content:center;align-items:center}
+      .nav-logo .logo-icon{width:36px;height:36px;font-size:15px;border-radius:8px}
+      .nav-logo .logo-text{font-size:12px}
+      .nav-logo .logo-small{font-size:9px}
+      .nav-logo{gap:10px}
+      .mobile-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:997;opacity:0;visibility:hidden;transition:opacity 0.4s,visibility 0.4s;-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px)}
+      .mobile-overlay.show{opacity:1;visibility:visible}
+      .mobile-menu{padding:16px 12px;padding-bottom:calc(16px + env(safe-area-inset-bottom,0px));gap:8px}
+      .mobile-menu a{padding:14px 16px;font-size:14px;gap:12px}
       .product-grid{grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
       .section{padding:60px 0}
       .page-header{padding:50px 0 16px}
@@ -305,6 +313,13 @@
       .back-top{width:40px;height:40px;bottom:16px;left:16px}
     }
     @media(max-width:480px){
+      .nav-logo .logo-icon{width:32px;height:32px;font-size:13px;border-radius:7px}
+      .nav-logo .logo-text{font-size:11px;line-height:1.15}
+      .nav-logo .logo-small{font-size:8px}
+      .nav-logo{gap:8px}
+      .navbar{height:64px;padding:0 16px}
+      .mobile-menu{top:64px;padding:12px 10px;padding-bottom:calc(12px + env(safe-area-inset-bottom,0px));gap:6px}
+      .mobile-menu a{padding:13px 14px;font-size:13px;gap:10px}
       .product-grid{grid-template-columns:1fr}
       .div-toggle-btn{padding:9px 14px;font-size:11px}
       .page-header{padding:40px 0 12px}
@@ -367,6 +382,7 @@
       <span></span><span></span><span></span>
     </button>
   </nav>
+  <div class="mobile-overlay" id="mobileOverlay" onclick="toggleMobile()"></div>
   <div class="mobile-menu" id="mobileMenu">
     <a href="#" onclick="switchDivision('ck')"><i class="fas fa-truck"></i> Chetan Kumar Motors</a>
     <a href="#" onclick="switchDivision('ua')"><i class="fas fa-motorcycle"></i> United Automobile</a>
@@ -646,10 +662,20 @@
       if(saved==='light')document.getElementById('themeBtn').innerHTML='<i class="fas fa-moon"></i>';
     })();
     function toggleMobile(){
-      var m=document.getElementById('mobileMenu'),h=document.getElementById('hamburger');
+      var m=document.getElementById('mobileMenu'),h=document.getElementById('hamburger'),o=document.getElementById('mobileOverlay');
       m.classList.toggle('open');h.classList.toggle('open');
+      if(o)o.classList.toggle('show',m.classList.contains('open'));
       document.body.style.overflow=m.classList.contains('open')?'hidden':'';
     }
+    document.getElementById('mobileMenu').addEventListener('click',function(e){
+      var link=e.target.closest('a');if(!link)return;
+      if(!link.getAttribute('onclick')&&link.getAttribute('href')&&link.getAttribute('href')!=='#'){
+        document.getElementById('mobileMenu').classList.remove('open');
+        document.getElementById('hamburger').classList.remove('open');
+        var ov=document.getElementById('mobileOverlay');if(ov)ov.classList.remove('show');
+        document.body.style.overflow='';
+      }
+    });
     function toggleDivisionMenu(){document.getElementById('divDropdown').classList.toggle('open')}
     document.addEventListener('click',function(e){if(!e.target.closest('#divDropdown'))document.getElementById('divDropdown').classList.remove('open')});
     var featured=(function(){
@@ -757,6 +783,8 @@
       updateHeading();refreshDisplay();
       document.getElementById('mobileMenu').classList.remove('open');
       document.getElementById('hamburger').classList.remove('open');
+      var ov=document.getElementById('mobileOverlay');if(ov)ov.classList.remove('show');
+      document.body.style.overflow='';
       document.getElementById('products').scrollIntoView({behavior:'smooth',block:'start'});
     }
     function openEnquiry(name,cat){
