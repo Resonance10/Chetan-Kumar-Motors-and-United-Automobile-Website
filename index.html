@@ -92,7 +92,7 @@
     .navbar.hide{transform:translateY(-100%)}
     .navbar.scrolled{box-shadow:var(--shadow-lg)}
     .nav-logo{display:flex;align-items:center;gap:14px;flex-shrink:0}
-    .nav-logo .logo-icon{width:42px;height:42px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .nav-logo .logo-icon{width:72px;height:42px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
     .nav-logo .logo-text{font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--text-heading);line-height:1.2}
     .nav-logo .logo-small{font-size:10px;font-weight:500;color:var(--text-secondary);letter-spacing:.5px;margin-top:2px}
     .nav-links{display:flex;align-items:center;gap:6px}
@@ -437,7 +437,7 @@
     @media(max-width:768px){
       .nav-links>a:not(.nav-contact-btn),.div-dropdown,.theme-btn,.lang-dropdown{display:none!important}
       .hamburger{display:flex;min-width:44px;min-height:44px;padding:10px;justify-content:center;align-items:center}
-      .nav-logo .logo-icon{width:36px;height:36px}
+      .nav-logo .logo-icon{width:62px;height:36px}
       .nav-logo .logo-text{font-size:12px}
       .nav-logo .logo-small{font-size:9px}
       .nav-logo{gap:10px}
@@ -486,7 +486,7 @@
       .stat-card .stat-label{font-size:11px}
     }
     @media(max-width:480px){
-      .nav-logo .logo-icon{width:32px;height:32px}
+      .nav-logo .logo-icon{width:55px;height:32px}
       .nav-logo .logo-text{font-size:11px;line-height:1.15}
       .nav-logo .logo-small{font-size:8px}
       .nav-logo{gap:8px}
@@ -625,13 +625,8 @@
   <nav class="navbar" id="navbar">
     <a href="#" class="nav-logo">
       <div class="logo-icon">
-        <svg viewBox="0 0 100 100" style="width:100%; height:100%;" class="brand-logo-svg">
-          <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.3" />
-          <path d="M50 15 A35 35 0 0 0 15 50 A35 35 0 0 0 50 85 L50 72 A22 22 0 0 1 28 50 A22 22 0 0 1 50 28 Z" fill="var(--orange)" />
-          <path d="M15 50 H8 M25 25 L20 20 M25 75 L20 75 M38 17 L35 11 M38 83 L35 89" stroke="var(--orange)" stroke-width="3.5" stroke-linecap="round" />
-          <path d="M50 15 A35 35 0 0 1 85 50 A35 35 0 0 1 50 85 L50 72 A22 22 0 0 0 72 50 A22 22 0 0 0 50 28 Z" fill="var(--blue)" />
-          <path d="M50 28 V15 M72 50 H85 M50 72 V85 M66 34 L76 24 M66 66 L76 76" stroke="var(--blue)" stroke-width="3" stroke-linecap="round" />
-          <circle cx="50" cy="50" r="8" fill="var(--bg)" stroke="currentColor" stroke-width="3" />
+        <svg viewBox="0 0 318 186" style="width:100%; height:100%;" class="brand-logo-svg">
+          <path fill="var(--orange)" d="M317,52 L290,13 L292,3 L287,9 L287,0 L278,8 L260,2 L253,3 L262,6 L245,8 L228,0 L237,12 L217,11 L204,15 L195,14 L219,22 L194,25 L188,28 L202,29 L190,35 L173,32 L184,40 L196,43 L193,45 L172,46 L134,38 L122,38 L110,41 L95,50 L69,48 L53,54 L62,54 L46,61 L26,60 L38,66 L32,69 L13,67 L0,58 L6,70 L19,79 L6,77 L15,84 L36,86 L51,81 L44,89 L36,92 L43,92 L56,86 L69,68 L65,84 L80,62 L85,59 L90,60 L87,67 L88,82 L93,91 L115,112 L109,135 L149,161 L148,172 L161,178 L160,168 L153,153 L135,141 L127,132 L141,99 L141,85 L135,69 L145,83 L146,99 L175,112 L202,115 L223,142 L220,145 L196,148 L192,142 L188,142 L178,148 L186,153 L205,157 L230,151 L234,145 L228,124 L210,118 L205,105 L206,96 L213,115 L252,124 L256,128 L256,136 L249,149 L249,155 L240,157 L240,172 L248,168 L260,154 L266,131 L263,117 L231,102 L243,102 L248,94 L246,60 L250,49 L259,38 L251,58 L251,77 L262,56 L270,48 L268,44 L270,35 L276,48 L290,52 L288,53 L296,57 L302,65 L313,63 Z M144,104 L144,106 L143,107 L143,109 L140,115 L137,120 L134,123 L133,125 L133,130 L135,136 L136,136 L141,140 L142,140 L151,146 L157,152 L161,160 L164,167 L165,172 L168,173 L170,175 L170,181 L171,183 L177,185 L186,185 L186,183 L183,178 L177,173 L174,170 L172,166 L154,148 L151,144 L148,139 L146,133 L146,111 L145,106 Z"/>
         </svg>
       </div>
       <div>
@@ -964,13 +959,8 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
-            <svg viewBox="0 0 100 100" style="width:32px; height:32px;" class="brand-logo-svg">
-              <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.3" />
-              <path d="M50 15 A35 35 0 0 0 15 50 A35 35 0 0 0 50 85 L50 72 A22 22 0 0 1 28 50 A22 22 0 0 1 50 28 Z" fill="var(--orange)" />
-              <path d="M15 50 H8 M25 25 L20 20 M25 75 L20 75 M38 17 L35 11 M38 83 L35 89" stroke="var(--orange)" stroke-width="3.5" stroke-linecap="round" />
-              <path d="M50 15 A35 35 0 0 1 85 50 A35 35 0 0 1 50 85 L50 72 A22 22 0 0 0 72 50 A22 22 0 0 0 50 28 Z" fill="var(--blue)" />
-              <path d="M50 28 V15 M72 50 H85 M50 72 V85 M66 34 L76 24 M66 66 L76 76" stroke="var(--blue)" stroke-width="3" stroke-linecap="round" />
-              <circle cx="50" cy="50" r="8" fill="var(--bg-card)" stroke="currentColor" stroke-width="3" />
+            <svg viewBox="0 0 318 186" style="width:55px; height:32px;" class="brand-logo-svg">
+              <path fill="var(--orange)" d="M317,52 L290,13 L292,3 L287,9 L287,0 L278,8 L260,2 L253,3 L262,6 L245,8 L228,0 L237,12 L217,11 L204,15 L195,14 L219,22 L194,25 L188,28 L202,29 L190,35 L173,32 L184,40 L196,43 L193,45 L172,46 L134,38 L122,38 L110,41 L95,50 L69,48 L53,54 L62,54 L46,61 L26,60 L38,66 L32,69 L13,67 L0,58 L6,70 L19,79 L6,77 L15,84 L36,86 L51,81 L44,89 L36,92 L43,92 L56,86 L69,68 L65,84 L80,62 L85,59 L90,60 L87,67 L88,82 L93,91 L115,112 L109,135 L149,161 L148,172 L161,178 L160,168 L153,153 L135,141 L127,132 L141,99 L141,85 L135,69 L145,83 L146,99 L175,112 L202,115 L223,142 L220,145 L196,148 L192,142 L188,142 L178,148 L186,153 L205,157 L230,151 L234,145 L228,124 L210,118 L205,105 L206,96 L213,115 L252,124 L256,128 L256,136 L249,149 L249,155 L240,157 L240,172 L248,168 L260,154 L266,131 L263,117 L231,102 L243,102 L248,94 L246,60 L250,49 L259,38 L251,58 L251,77 L262,56 L270,48 L268,44 L270,35 L276,48 L290,52 L288,53 L296,57 L302,65 L313,63 Z M144,104 L144,106 L143,107 L143,109 L140,115 L137,120 L134,123 L133,125 L133,130 L135,136 L136,136 L141,140 L142,140 L151,146 L157,152 L161,160 L164,167 L165,172 L168,173 L170,175 L170,181 L171,183 L177,185 L186,185 L186,183 L183,178 L177,173 L174,170 L172,166 L154,148 L151,144 L148,139 L146,133 L146,111 L145,106 Z"/>
             </svg>
             <div class="logo-text" style="margin:0;">Chetan Kumar Motors &amp; UA</div>
           </div>
