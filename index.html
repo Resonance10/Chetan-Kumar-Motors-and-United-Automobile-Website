@@ -1216,22 +1216,18 @@
     document.querySelectorAll('.stats-grid').forEach(el=>statsObserver.observe(el));
 
     const featured=[
-      {name:'Brake Shoe Set',cat:'Car Parts',icon:'fa-car',div:'CKM',image:'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=600&q=80'},
-      {name:'Tractor PTO Shaft',cat:'Tractor Parts',icon:'fa-tractor',div:'CKM',image:'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80'},
-      {name:'JCB Hydraulic Cylinder',cat:'JCB Parts',icon:'fa-hard-hat',div:'CKM',image:'https://images.unsplash.com/photo-1579758629938-03607ccdbaba?auto=format&fit=crop&w=600&q=80'},
-      {name:'Car Brake Pad Set',cat:'Car Parts',icon:'fa-car',div:'CKM',image:'https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=600&q=80'},
-      {name:'Farm Cultivator Blade',cat:'Farm Implements',icon:'fa-seedling',div:'CKM',image:'https://images.unsplash.com/photo-1622383563227-04401ab4e5ea?auto=format&fit=crop&w=600&q=80'},
-      {name:'Car Tyre 195/65 R15',cat:'Tyres',icon:'fa-circle',div:'CKM',image:'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=600&q=80'}
+      {name:'Brake Shoe Set',cat:'Car Parts',icon:'fa-car',div:'CKM'},
+      {name:'Tractor PTO Shaft',cat:'Tractor Parts',icon:'fa-tractor',div:'CKM'},
+      {name:'JCB Hydraulic Cylinder',cat:'JCB Parts',icon:'fa-hard-hat',div:'CKM'},
+      {name:'Car Brake Pad Set',cat:'Car Parts',icon:'fa-car',div:'CKM'},
+      {name:'Farm Cultivator Blade',cat:'Farm Implements',icon:'fa-seedling',div:'CKM'},
+      {name:'Car Tyre 195/65 R15',cat:'Tyres',icon:'fa-circle',div:'CKM'}
     ];
     const featuredTrack=document.getElementById('featuredTrack');
     if(featuredTrack){
       featuredTrack.innerHTML=featured.map(f=>`
         <div class="carousel-card">
-          <div class="cc-img">
-            ${f.image ? `<img src="${f.image}" alt="${f.name}" loading="lazy" onerror="this.style.display='none'">` : ''}
-            <i class="fas ${f.icon} pc-img-fallback"></i>
-            <span class="cc-tag">${f.div}</span>
-          </div>
+          <div class="cc-img"><i class="fas ${f.icon}"></i><span class="cc-tag">${f.div}</span></div>
           <div class="cc-body">
             <h4>${f.name}</h4>
             <div class="cc-cat">${f.cat}</div>
