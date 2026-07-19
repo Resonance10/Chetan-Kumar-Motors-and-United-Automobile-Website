@@ -742,6 +742,7 @@
       background-image: var(--hero-bg-image);
       background-size: cover;
       background-position: center;
+      background-attachment: fixed;
       background-repeat: no-repeat;
       opacity: var(--hero-bg-opacity);
       z-index: 1;
@@ -1357,7 +1358,9 @@
     }
 
     .hero-cta .btn-primary {
-      background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+      background: linear-gradient(270deg, var(--orange), var(--orange-dark), var(--gold), var(--orange));
+      background-size: 300% 300%;
+      animation: animatedgradient 4s ease infinite;
       color: #fff;
       box-shadow: 0 4px 24px rgba(255, 107, 53, 0.3)
     }
@@ -2054,7 +2057,8 @@
       border: 1px solid var(--border);
       transition: var(--transition);
       position: relative;
-      overflow: hidden
+      overflow: hidden;
+      backdrop-filter: blur(12px) saturate(150%);
     }
 
     .stat-card::before {
@@ -3428,6 +3432,41 @@
     .lang-option {
       transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s, border-color 0.3s, background 0.3s, color 0.3s !important;
     }
+    /* FAB WhatsApp */
+    .fab-whatsapp {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      background-color: #25D366;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+      z-index: 1000;
+      animation: pulse-fab 2s infinite;
+      transition: transform 0.3s ease;
+    }
+    .fab-whatsapp:hover {
+      transform: scale(1.1);
+      color: white;
+    }
+    @keyframes pulse-fab {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+
+    /* Animated Gradient Backgrounds */
+    @keyframes animatedgradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
   </style>
 </head>
 
@@ -3685,22 +3724,22 @@
         <h2 class="section-title">Built on Trust &amp; Experience</h2>
       </div>
       <div class="stats-grid reveal-stagger">
-        <div class="stat-card">
+        <div class="stat-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
           <i class="fas fa-calendar-alt"></i>
           <div class="stat-num" data-target="29">0</div>
           <div class="stat-label">Years of Service</div>
         </div>
-        <div class="stat-card">
+        <div class="stat-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
           <i class="fas fa-cogs"></i>
           <div class="stat-num" data-target="12000">0</div>
           <div class="stat-label">Parts in Stock</div>
         </div>
-        <div class="stat-card">
+        <div class="stat-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
           <i class="fas fa-certificate"></i>
           <div class="stat-num" data-target="100">0</div>
           <div class="stat-label">Genuine Parts</div>
         </div>
-        <div class="stat-card">
+        <div class="stat-card" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2">
           <i class="fas fa-building"></i>
           <div class="stat-num" data-target="2">0</div>
           <div class="stat-label">Expert Divisions</div>
@@ -4313,6 +4352,10 @@
 
 
   </script>
+  <a href="https://wa.me/919922324409" target="_blank" class="fab-whatsapp" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
 </body>
 
 </html>
